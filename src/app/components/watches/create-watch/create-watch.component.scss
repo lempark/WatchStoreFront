@@ -1,0 +1,75 @@
+.create-watch-page{
+    @import "../../../../assets/css/create-watch-form-theme.scss";
+    @import "../../../../assets/css/create-watch-form-style.scss";
+    @import "../../../../assets/css/create-watch-form-feature.scss";
+    font-family: Inter,sans-serif;
+}
+.image-wrap {
+    padding: 10px;
+    border: solid 1px #e0e0e0;
+    display: inline-block;
+}
+.img-space {
+    border: dashed 1px #d3d3d3;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    min-height:175px;
+}
+
+.img-space img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    cursor: pointer;
+}
+
+.fileInputProfileWrap {
+    width: 100%;
+    height: auto;
+}
+
+.fileInputProfile {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    opacity: 0;
+    cursor: pointer;
+}
+.fileInputProfile[disabled] + .img-space{
+    pointer-events: none;
+    cursor: not-allowed!important;
+}
+.btn-danger{
+    display: flex;
+    justify-content: center;
+}
+.image-input-error{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+.error{
+    color: red;
+}
+#submit-error{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.submit-success{
+    text-align: center;
+    margin-bottom: 10px;
+    color: green;
+}
+.form-buttons-wrapper{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}

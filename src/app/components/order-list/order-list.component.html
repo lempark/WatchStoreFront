@@ -1,0 +1,32 @@
+<div class="create-watch-page">
+  <link rel="stylesheet" href="/../../assets/css/bootstrap.min.css">
+    <title>Active Orders</title>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Brand</th>
+            <th scope="col">Name</th>
+            <th scope="col">Material</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">User name</th>
+            <th scope="col">Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{order.watch.brand.brandName}}</td>
+            <td>{{order.watch.name}}</td>
+            <td>{{order.watch.material}}</td>
+            <td>{{order.watch.category.name}}</td>
+            <td>{{order.watch.price}}</td>
+            <td>{{order.user.userName}}</td>
+            <td>{{order.user.email}}</td>
+            <td>
+              <button (click)="onCompleteOrder(order)" id="complete-btn" class="complete-btn" data-component="button" data-content=""> Complete Order </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

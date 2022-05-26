@@ -1,0 +1,91 @@
+<div class="edit-watch-page">
+  <link rel="stylesheet" href="/../../assets/css/bootstrap.min.css">
+   <title>Edit Watch </title>
+   <form [formGroup]="watchForm" (ngSubmit)="onWatchSubmit()" class="create-form" autocomplete="on">
+     <div role="main" class="form-all">
+       <ul class="form-section page-section">
+         <div id="cid_1" class="form-input-wide" data-type="control_head">
+           <div class="form-header-group  header-large">
+             <div class="header-text httac htvam">
+               <h1 id="header_1" class="form-header" data-component="header"> Edit Watch </h1>
+             </div>
+           </div>
+         </div>
+         <div class="form-group" class="form-line">
+           <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Name </label>
+           <div id="cid_4" class="form-input" data-layout="half">
+             <input type="name" id="input_4" name="q4_name" required="" class="form-control" class="form-textbox" formControlName="name" style="width:310px" size="310" aria-labelledby="label_4" autocomplete="off" value={this.originalWatch!.name}/>
+             <div class="error" *ngIf="watchForm.controls['name'].hasError('required') && watchForm.controls['name'].touched">Name is required</div>
+           </div>
+         </div>
+         <li class="form-group" class="form-line">
+           <label class="form-label form-label-left form-label-auto" id="label_9" for="input_9"> Material </label>
+           <div id="cid_9" class="form-input" data-layout="half">
+             <input type="material" id="input_9" name="q9_material" required="" class="form-control" class="form-textbox" formControlName="material" style="width:310px" size="310" aria-labelledby="label_9" autocomplete="off" value={this.originalWatch!.material}/>
+             <div class="error" *ngIf="watchForm.controls['material'].hasError('required') && watchForm.controls['material'].touched">Material is required</div>
+           </div>
+         </li>
+         <li class="form-line" data-type="control_dropdown" id="id_13">
+           <label class="form-label form-label-left form-label-auto" id="label_13" for="input_13"> Category </label>
+           <div id="cid_13" class="form-input" data-layout="half">
+             <select class="form-dropdown" id="input_13" name="q13_category" style="width:310px" formControlName="categoryId" value={this.originalWatch!.category.name}>
+               <option *ngFor="let category of categories" [ngValue]="category.categoryId"> {{category.name}} </option>
+             </select>
+           </div>
+         </li>
+         <li class="form-line" data-type="control_dropdown" id="id_14">
+           <label class="form-label form-label-left form-label-auto" id="label_14" for="input_14"> Brand </label>
+           <div id="cid_14" class="form-input" data-layout="half">
+             <select class="form-dropdown" id="input_14" name="q14_brand" style="width:310px" formControlName="brandId" value={this.originalWatch!.brand.brandName}>
+               <option *ngFor="let brand of brands" [ngValue]="brand.brandId"> {{brand.brandName}} </option>
+             </select>
+           </div>
+         </li>
+         <li class="form-group" class="form-line" data-type="control_number">
+           <label class="form-label form-label-left form-label-auto" id="label_15" for="input_15"> Price </label>
+           <div id="cid_15" class="form-input" data-layout="half">
+             <input data-type="input-number" data-component="number" type="number" id="input_15" name="q15_price" class=" form-number-input form-textbox" formControlName="price" style="width:310px" size="310" value={this.originalWatch!.price} aria-labelledby="label_15" step="any" />
+             <div class="error" *ngIf="watchForm.controls['price'].hasError('required') && watchForm.controls['price'].touched">Price is required</div>
+           </div>
+         </li>
+         <li class="form-line" data-type="control_fileupload" id="id_5">
+           <label class="form-label form-label-left form-label-auto" id="label_5" for="input_5"> Image </label>
+           <div class="form-input">
+             <fieldset>
+               <label class="image-input-error">{{imageError}}</label>
+               <div class="custom-file fileInputProfileWrap">
+                 <input #fileInput type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+                 <div class="img-space">
+                   <ng-container *ngIf="isImageSaved; else elseTemplate" class="uploaded-img">
+                     <img [src]="cardImageBase64" />
+                   </ng-container>
+                   <ng-template #elseTemplate>
+                     <img src="./../../assets/images/imageUploadPlaceholder.png" class="img-responsive">
+                   </ng-template>
+                 </div>
+               </div>
+             </fieldset>
+             <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">Remove</a>
+           </div>
+         </li>
+         <li class="form-line" data-type="control_textarea" id="id_6">
+           <label class="form-label form-label-left form-label-auto" id="label_6" for="input_6"> Decription </label>
+           <div id="cid_6" class="form-input" data-layout="full">
+             <textarea formControlName="description" id="input_6" class="form-textarea" name="q6_decription" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_6"></textarea>
+           </div>
+         </li>
+         <li class="form-line" data-type="control_button" id="id_2">
+           <div id="cid_2" class="form-input-wide" data-layout="full">
+             <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+               <div *ngIf="errorMessages.length != 0" class="error" id="submit-error">
+                  <div *ngFor="let error of errorMessages">{{error}}</div>
+               </div>
+               <div class="submit-success" *ngIf="isWatchEdited">{{successMessage}}</div>
+               <button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="" [disabled]="watchForm.invalid"> Submit </button>
+             </div>
+           </div>
+         </li>
+       </ul>
+     </div>
+   </form>
+ </div>

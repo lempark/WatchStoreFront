@@ -1,0 +1,11 @@
+<h1 mat-dialog-title class="title">Oops...</h1>
+
+<div mat-dialog-content>
+    <mat-label *ngIf="data.errors.length != 0" class="error">
+        <div *ngFor="let error of data.errors">{{error}}</div>
+    </mat-label>
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+    <button class="mt-btn" mat-button (click)="onCloseClick()">Close</button>
+</div>

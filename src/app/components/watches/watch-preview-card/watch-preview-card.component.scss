@@ -1,0 +1,96 @@
+@import "../../../../variables.scss";
+
+.watch-card {
+  width: 352px;
+  box-shadow: 10px 10px 20px $shadowLighter;
+  border-radius: 10px;
+  border: solid;
+  border-width: 1px;
+  overflow: hidden;
+  outline: none;
+  cursor: default;
+  &:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0 4px 8px $lightBoxShadow;
+    top: -4px;
+    background-color: $backgroundWhite;
+  }
+  &__photo {
+    background: no-repeat center center;
+    background-size: cover;
+    background-color: white;
+    height: 370px;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    text-align: center;
+    display: flex;
+    font-weight: 600;
+    font-size: 21px;
+  }
+
+  &__content {
+    padding: 16px 24px 0 24px;
+    height: 350px;
+    justify-content: center;
+    background-color: lightgrey;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    color: $secondary;
+  }
+
+  &__description {
+    overflow-wrap: break-word;
+    margin-bottom: 15px;
+  }
+}
+#delete-btn{
+  background-color:orangered;
+  border-radius: 10px 0 0 10px;
+  &:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0 4px 8px $lightBoxShadow;
+    top: -4px;
+    background-color: orange;
+  }
+}
+#edit-btn{
+  background-color:blueviolet;
+  border-radius: 0 10px 10px 0;
+  &:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0 4px 8px $lightBoxShadow;
+    top: -4px;
+    background-color: lightskyblue;
+  }
+}
+.admin-btn{
+  border: none;
+  padding: 12px;
+  min-width: 50%;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  cursor:pointer;
+}
+.buy-btn{
+  background-color: gold;
+  border-radius: 10px;
+  padding: 7px;
+  min-width: 100%;
+  cursor:pointer;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  &:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0 4px 8px $lightBoxShadow;
+    background-color: lightyellow;
+  }
+}
+.error{
+  color: red;
+}

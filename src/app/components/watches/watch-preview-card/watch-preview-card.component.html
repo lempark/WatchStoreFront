@@ -1,0 +1,34 @@
+<div class="watch-card">
+  <div class="watch-card__photo" [ngStyle]="{backgroundImage: 'url(' + watch!.watchPhoto + ')'}">
+    <div *ngIf="errorMessages.length != 0" class="error" id="submit-error">
+      <div *ngFor="let error of errorMessages">{{error}}</div>
+   </div>
+  </div>
+  <div class="watch-card__content">
+    <div *ngIf="appUser" class="buy-button">
+      <button class="buy-btn" id="buy-btn" mat-raised-button (click)="onBuyWatch()">Buy</button>
+    </div>
+    <div class="watch-card__name">
+      Name: {{watch!.name}}
+    </div>
+    <div class="watch-card__brand">
+      Brand: {{watch!.brand.brandName}}
+    </div>
+    <div class="watch-card__material">
+      Material: {{watch!.material}}
+    </div>
+    <div class="watch-card__category">
+      Category: {{watch!.category.name}}
+    </div>
+    <div class="watch-card__price">
+      Price: {{watch!.price}}
+    </div>
+    <div class="watch-card__description">
+      Description: {{watch!.description}}
+    </div>
+    <div *ngIf="isAdmin" class="admin-buttons">
+      <button class="admin-btn" id="delete-btn" (click)="onWatchDelete()">Delete</button>
+      <button class="admin-btn" id="edit-btn" (click)="onWatchEdit()">Edit</button>
+    </div>
+  </div>
+</div>

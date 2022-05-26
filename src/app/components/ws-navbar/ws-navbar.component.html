@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <div><img src="../../assets/images/w1.png" class = "main-icon"></div>
+  <a class="navbar-brand" href = "">Watch Store</a>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav w-100">
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link" id="create-watch" routerLink="/createWatch">Create Watch</a>
+      </li>
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link" id="orders" routerLink="/orders">Active Orders</a>
+      </li>
+      <ng-template #anonymousUser>
+        <li class="nav-item ml-auto">
+          <a class="nav-link" id="login" routerLink="/login">Login</a>
+        </li>
+      </ng-template>
+      <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown ml-auto">
+        <button ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ appUser.userName }}
+        </button>
+        <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
+          <a class="dropdown-item" routerLink="/adminRegister">New User Registration</a>
+          <button class="dropdown-item" (click)="logout()">Log Out</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

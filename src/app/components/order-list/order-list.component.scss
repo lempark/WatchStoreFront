@@ -1,0 +1,19 @@
+@import "../../../variables.scss";
+tr{
+    text-align: center;
+}
+.complete-btn{
+    border-radius: 8px;
+    min-width: 170px;
+    padding: 7px;
+    border: none;
+    background-color: deepskyblue;
+    &:hover {
+        transition: all 0.2s ease-out;
+        box-shadow: 0 4px 8px $lightBoxShadow;
+        background-color: blueviolet;
+    }
+    &:focus{
+        outline: none;
+    }
+}

@@ -1,0 +1,26 @@
+@import "../../../assets/css/create-watch-form-theme.scss";
+@import "../../../assets/css/create-watch-form-style.scss";
+@import "../../../assets/css/create-watch-form-feature.scss";
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+nav {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#dropdown01{
+    border-width: 0;
+    background: none;
+}
+.dropdown-toggle::after{
+    content:initial
+ }
+ .dropdown-menu{
+     text-align:  right;
+ }
+ .main-icon{
+     width: 50px;
+ }
+ .dropdown-toggle{
+     cursor: pointer;
+ }
+ .dropdown-item{
+    cursor: pointer;
+ }

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title class="title">{{data.watch.brand.brandName}} {{data.watch.name}}</h1>
+
+<div mat-dialog-content>
+    <mat-label *ngIf="data.isSuccess">Thanks for your order, we will contact with you as soon as posible</mat-label>
+    <div *ngIf="data.errors.length != 0" class="error">
+        <div *ngFor="let error of data.errors">{{error}}</div>
+    </div>
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+    <button class="mt-btn" mat-button (click)="onCloseClick()">Close</button>
+</div>

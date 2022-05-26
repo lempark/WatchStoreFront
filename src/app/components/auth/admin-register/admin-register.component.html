@@ -1,0 +1,55 @@
+<div class="row">
+	<div class="main-bg">
+	  <!-- title -->
+	  <h1>Register new user</h1>
+	  <!-- //title -->
+	  <!---728x90--->
+	  <div class="sub-main-w3">
+		<!-- vertical tabs -->
+		<div class="vertical-tab">
+		  <div id="section2" class="section-w3ls">
+			<article>
+			  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+				<h3 class="legend">Register Here</h3>
+				<div class="form-group" class="input">
+				  <span class="fa fa-user-o" aria-hidden="true"></span>
+				  <input type="text" placeholder="Username" name="name" required="" class="form-control" formControlName="userName" id="userName" autocomplete="off">
+				  <div class="error" *ngIf="registerForm.controls['userName'].hasError('required') && registerForm.controls['userName'].touched">Username is required</div>
+				</div>
+				<div class="form-group" class="input">
+				  <span class="fa fa-user-o" aria-hidden="true"></span>
+				  <input type="text" placeholder="Email" name="email" required="" class="form-control" formControlName="email" id="email" autocomplete="off">
+				  <div class="error" *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched">Email is required</div>
+				</div>
+				<div>
+				  <select required id="form-dropdown" name="role" class="form-dropdown" formControlName="role">
+					<option hidden value="" disabled selected class="dropdown-placeholder"> Role</option>
+				    <option *ngFor="let role of UserRoles | keyvalue" [ngValue]="role.value"> {{role.value}} </option>
+				  </select>
+				</div>
+				<div class="input">
+				  <span class="fa fa-key" aria-hidden="true"></span>
+				  <input type="password" placeholder="Password" name="password" required="" class="form-control" formControlName="password" id="pwd" autocomplete="off">
+				  <div class="error" *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">Password is required</div>
+				</div>
+				<div class="input">
+				  <span class="fa fa-key" aria-hidden="true"></span>
+				  <input type="password" placeholder="Confirm Password" name="confirmedPassword" required="" class="form-control" formControlName="confirmedPassword" id="confPwd" autocomplete="off">
+				  <div class="error" *ngIf="registerForm.controls['confirmedPassword'].hasError('required') && registerForm.controls['confirmedPassword'].touched">Please confirm your password</div>
+				</div>
+				<div class="submit-success" *ngIf="registerSuccess">{{registerSuccessMessage}}</div>
+				<button type="submit" class="btn submit" [disabled]="registerForm.invalid">Register</button>
+				<div *ngIf="registerPwdMatchError" class="error">
+				  <div>Passwords does not matches.</div>
+				</div>
+				<div *ngIf="registerErrorMessages.length != 0" class="error">
+				  <div *ngFor="let error of registerErrorMessages">{{error}}</div>
+				</div>
+			  </form>
+			</article>
+		  </div>
+		</div>
+		<!-- //vertical tabs -->
+		<div class="clear"></div>
+	  </div>
+	</div>

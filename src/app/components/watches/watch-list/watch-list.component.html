@@ -1,0 +1,42 @@
+<div class="watchlst">
+  <div class = "filters">
+    <label class = "filter-label" for="brands">Brand</label>
+      <div *ngFor="let brand of brands" class = "filter-group">
+        <label class="switch">
+          <input #filters
+          type="checkbox"
+          name="brand"
+          value="{{brand.brandName}}"
+          (change)="onBrandsCheckboxChange(brand, $event)"/>
+          <span class="slider round"></span>
+        </label>
+        {{brand.brandName}}
+    </div>
+    <label class = "filter-label" for="categories">Category</label>
+      <div *ngFor="let category of categories" class = "filter-group">
+        <label class="switch">
+          <input #filters
+          type="checkbox"
+          name="category"
+          value="{{category.name}}"
+          (change)="onCategoriesCheckboxChange(category, $event)"/>
+          <span class="slider round"></span>
+        </label>
+        {{category.name}}
+    </div>
+    <div class="filter-buttons">
+      <button (click) = "onFilterButton()" [ngClass] = "(brandIdsToFilter.length == 0 && categoryIdsToFilter.length == 0) ? 'filer-button-gray' : 'filer-button'" [disabled]="(brandIdsToFilter.length == 0 && categoryIdsToFilter.length == 0)">Apply Changes</button>
+      <button (click) = "onFiltersDropButton()" class = "filer-button">Drop Filters</button>  
+    </div>
+  </div>
+  <div>
+        <div class="watch-list__items" >
+          <app-watch-preview-card
+            *ngFor="let watch of watches"
+            [watch]="watch" class="watch-list__watch-card"
+            (deleteWatch)="deleteWatchFromList($event)">
+          </app-watch-preview-card>
+        </div>
+  </div>
+</div>
+
