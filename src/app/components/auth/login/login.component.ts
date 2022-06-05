@@ -20,15 +20,15 @@ export class LoginComponent implements OnInit {
     "password": new FormControl("", [Validators.required]),
     "confirmedPassword": new FormControl("", [Validators.required])
   });
-  invalidLogin: boolean = false;
   invalidRegister: boolean = false;
   registerPwdMatchError: boolean = false;
   returnUrl!: string;
   registerErrorMessages: string[] = [];
+  loginErrorMessages: string[] = [];
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService, private route:ActivatedRoute) { }
 
   onLogin() {
-    this.invalidLogin = false;
+    this.loginErrorMessages = [];
     if (this.loginForm.invalid) {
       return;
     }
@@ -39,9 +39,14 @@ export class LoginComponent implements OnInit {
         this.authService.refreshAuthenticatedUser();
         this.router.navigate([this.returnUrl]);
       }, 
-      error: () => {
-        this.invalidLogin = true
-        // alert(error.error.error_description)
+      error: (err) => {
+        if(err.error)
+        {
+          this.loginErrorMessages.push(err.error);
+          return
+        }
+        if(err.status == 401)
+          this.loginErrorMessages.push('Invalid credentials');
       }
     });
   }
@@ -64,7 +69,13 @@ export class LoginComponent implements OnInit {
     
     this.authService.register(user).subscribe({
       next: () => {
-        this.router.navigate([this.returnUrl]);
+        this.authService.login(user).subscribe({
+          next: (data) => {
+            window.sessionStorage.setItem('authenticatedUser', JSON.stringify(data));
+            this.authService.refreshAuthenticatedUser();
+            this.router.navigate([this.returnUrl]);
+          }
+        });
       }, 
       error: (err) => {
         err.error.forEach((element: { errorMessage: string; description: string }) => {

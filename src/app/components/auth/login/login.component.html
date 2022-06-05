@@ -26,9 +26,9 @@
 				  <div class="error" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Password is required</div>
 				</div>
 				<button type="submit" class="btn submit" [disabled]="loginForm.invalid">Login</button>
-				<div *ngIf="invalidLogin" class="error">
-				  <div>Invalid credentials.</div>
-				</div>
+				<div *ngIf="loginErrorMessages.length != 0" class="error">
+					<div *ngFor="let error of loginErrorMessages">{{error}}</div>
+				  </div>
 			  </form>
 			</article>
 		  </div>
