@@ -11,6 +11,7 @@
             <th scope="col">Price</th>
             <th scope="col">User name</th>
             <th scope="col">Email</th>
+            <th scope="col">Date</th>
             <th></th>
           </tr>
         </thead>
@@ -23,6 +24,7 @@
             <td>{{order.watch.price}}</td>
             <td>{{order.user.userName}}</td>
             <td>{{order.user.email}}</td>
+            <td>{{order.createdAt | date:'medium'}}</td>
             <td>
               <button (click)="onCompleteOrder(order)" id="complete-btn" class="complete-btn" data-component="button" data-content=""> Complete Order </button>
             </td>
