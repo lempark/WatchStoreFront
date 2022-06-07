@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IOrder, IOrderRequest } from '../models/order.model';
 import { IUserLoggedIn } from '../models/user.model';
-import { IWatch, IWatchCreateRequest, IWatchFilters } from '../models/watch.model';
 
 
 @Injectable({
@@ -34,6 +33,6 @@ export class OrderService {
         var options = {
             headers: headers
         };
-        return this.http.put<IOrder>(`${environment.apiBaseURI}/Orders${orderId}`, options);
+        return this.http.put<IOrder>(`${environment.apiBaseURI}/Orders${orderId}`, null, options);
     }
 }

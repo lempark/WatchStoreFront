@@ -9,7 +9,6 @@ import { WatchService } from '../../../services/watch.service';
 import { ViewChild } from '@angular/core';
 import { FormMessages } from '../../../utils/form-helper';
 import { ActivatedRoute, Router } from '@angular/router';
-import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-edit-watch',

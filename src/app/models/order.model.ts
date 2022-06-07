@@ -1,5 +1,4 @@
-import { DecimalPipe } from "@angular/common";
-import { IUser, IUserLoggedIn } from "./user.model";
+import { IUser } from "./user.model";
 import { IWatch } from "./watch.model";
 
 export interface IOrderRequest {
