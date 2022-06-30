@@ -73,6 +73,9 @@ export class CreateWatchComponent implements OnInit {
       }
       if (!allowed_types.includes(fileInput.target.files[0].type)) {
         this.imageError = 'Only Images are allowed';
+        this.cardImageBase64 = null;
+        this.isImageSaved = false;
+        this.fileInputVariable.nativeElement.value = "";
     }
       const reader = new FileReader();
       reader.onload = (e: any) => {

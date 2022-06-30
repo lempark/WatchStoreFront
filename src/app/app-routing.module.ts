@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: 'adminRegister', component: AdminRegisterComponent, canActivate: [AdminRouteGuard]},
   { path: 'createWatch', component: CreateWatchComponent, canActivate: [AdminRouteGuard]},
   { path: 'editWatch', component: EditWatchComponent, canActivate: [AdminRouteGuard]},
-  { path: 'orders', component: OrderListComponent, canActivate: [AdminRouteGuard]}
+  { path: 'orders', component: OrderListComponent, canActivate: [AdminRouteGuard]},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({

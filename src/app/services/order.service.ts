@@ -22,8 +22,14 @@ export class OrderService {
         return this.http.get<IOrder[]>(`${environment.apiBaseURI}/Orders`, options);
     }
 
-    createOrder(order: IOrderRequest): Observable<IOrder> {
-        return this.http.post<IOrder>(`${environment.apiBaseURI}/Orders`, order);
+    createOrder(order: IOrderRequest, user: IUserLoggedIn | null): Observable<IOrder> {
+        var headers = new HttpHeaders({
+            'Authorization': `Bearer ${user ? user.token : null}`
+        });
+        var options = {
+            headers: headers
+        };
+        return this.http.post<IOrder>(`${environment.apiBaseURI}/Orders/Create`, order, options);
     }
 
     completeOrder(orderId: number, user: IUserLoggedIn | null): Observable<IOrder> {
@@ -33,6 +39,6 @@ export class OrderService {
         var options = {
             headers: headers
         };
-        return this.http.put<IOrder>(`${environment.apiBaseURI}/Orders${orderId}`, null, options);
+        return this.http.put<IOrder>(`${environment.apiBaseURI}/Orders/Complete/${orderId}`, null, options);
     }
 }

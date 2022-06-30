@@ -62,7 +62,7 @@ export class WatchPreviewCardComponent implements OnInit{
       watchId: this.watch!.watchId,
       userId: this.appUser!.userId
     };
-    this.orderService.createOrder(orderRequest).subscribe({
+    this.orderService.createOrder(orderRequest, this.appUser).subscribe({
       next: () => {
         dialogRef = this.dialog.open(BuyModalComponent, {
           data: {
